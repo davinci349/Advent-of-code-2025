@@ -4,7 +4,7 @@ count_zero = 0
 with open("Day1/data.txt", "r") as f:  # "r" opens for reading only.
     for line in f:
         move = line.strip()
-        if not move:              # falsy value, empty string, skip.
+        if not move:
             continue
 
         direction = move[0]
