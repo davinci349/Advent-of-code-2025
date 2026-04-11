@@ -16,8 +16,10 @@ data = """269351-363914,180-254,79-106,771-1061,4780775-4976839,7568-10237,33329
 total = 0
 
 for part in data.split(","):
-    start, end = map(int, part.split("-"))
-    
+    start, end = map(int, part.split("-"))  # When map is called, the function begins to iterate over the the temps list passed in. As it iterates, it passed a single
+                                            # item into the convertDeg function until it passes all items in. The equivalent of the process is the following:
+                                            # for item in temps:
+                                            #       convertDeg(item)
     for n in range(start, end + 1):
         if is_invalid_id(n):
             total += n
