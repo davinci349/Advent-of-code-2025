@@ -2,7 +2,7 @@ position = 50
 count_zero = 0
 
 with open("2025/Day1/data1.txt", "r") as f:  # "r" opens for reading only.
-    for line in f:
+    for line in f:           # splits "L3\nR49\nR11\n..." into lines for me and read until you hit a newline (\n), then give me that chunk.
         move = line.strip()  # In cases where you want to get rid of a certain character on the left and right side of
                              # a string, you would use the strip method. 
         if not move:         # This checks if move is empty or "False-like": ""(empty string),0,None.

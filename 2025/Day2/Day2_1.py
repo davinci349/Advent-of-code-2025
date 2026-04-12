@@ -12,7 +12,7 @@ def is_invalid_id(n):
     
 
 with open("2025/Day2/data2.txt", "r") as f:
-    data = f.read().strip()
+    data = f.read().strip()       
             
        
 total = 0

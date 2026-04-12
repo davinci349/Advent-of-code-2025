@@ -2,13 +2,13 @@ def is_invalid_id(n):
     s = str(n)
     length = len(s)
 
-    for pattern_len in range(1, length):
-        if length % pattern_len != 0:
+    for pattern_len in range(1, length):      
+        if length % pattern_len != 0:         # to divide exactly without remainder
             continue                          # Once a continue statement is hit, the current iteration stops and goes back to the top of the loop.
             
-        repeat_count = length // pattern_len
+        repeat_count = length // pattern_len  
 
-        if repeat_count < 2:
+        if repeat_count < 2:                  # It should be at least double.
             continue
 
         pattern = s[:pattern_len]
