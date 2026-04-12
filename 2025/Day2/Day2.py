@@ -11,12 +11,14 @@ def is_invalid_id(n):
     
     
 
-with open("2025/Day2/data.txt", "r") as f:
+with open("2025/Day2/data2.txt", "r") as f:
     data = f.read().strip()
+            
        
 total = 0
 
-for part in data.split(","):
+for part in data.split(","):                # The split() method, when applied to a string, splits the string into substrings by using the given argument as a delimiter.
+                                            # Ex: "1-2".split('-') returns a list of substrings ["1", "2"]. 
     start, end = map(int, part.split("-"))  # When map is called, the function begins to iterate over the the temps list passed in. As it iterates, it passed a single
                                             # item into the convertDeg function until it passes all items in. The equivalent of the process is the following:
                                             # for item in temps:
@@ -26,6 +28,6 @@ for part in data.split(","):
             total += n
 
 print(total)
-
-
-
+    
+        
+        

@@ -1,7 +1,7 @@
 position = 50
 count_zero = 0
 
-with open("2025/Day1/data.txt", "r") as f:  # "r" opens for reading only.
+with open("2025/Day1/data1.txt", "r") as f:  # "r" opens for reading only.
     for line in f:
         move = line.strip()  # In cases where you want to get rid of a certain character on the left and right side of
                              # a string, you would use the strip method. 
