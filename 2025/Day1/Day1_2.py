@@ -15,11 +15,11 @@ with open("2025/Day1/data1.txt", "r") as f:
             position = (position + d) % 100
 
         else:  # L                    
-            if position == 0:
+            if position == 0:                              # if d less than position then still be positive and will not past the 0.
                 count_zero += d // 100
             elif d >= position:
                 count_zero += 1 + (d - position) // 100    # An offset of 1 is added because (d - position) crosses zero exactly once.
 
-            position = (position - d) % 100
+            position = (position - d) % 100                
 
 print(count_zero)
