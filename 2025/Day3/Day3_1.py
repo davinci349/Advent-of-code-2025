@@ -6,9 +6,9 @@ def max_joltage(line):
 
     for d in digits:
         if max_left != -1:
-            max_value = max(max_value, max_left * 10 + d)
+            max_value = max(max_value, max_left * 10 + d)   # update max_value if we can form a larger two-digit number
 
-        max_left = max(max_left, d)
+        max_left = max(max_left, d)                         # update max_left if we see a larger first digit
 
     return max_value
 
@@ -18,11 +18,11 @@ def total_joltage(filename):
 
     with open(filename, "r") as f:
         for line in f:
-            if line.strip():
+            if line.strip():    
                 total += max_joltage(line)
 
-    return total
+    return total 
 
 
 # Run
-print(total_joltage("input.txt"))
+print(total_joltage("2025/Day3/data3.txt"))
