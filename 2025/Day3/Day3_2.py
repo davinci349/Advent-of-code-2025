@@ -1,6 +1,6 @@
 # Monotonic Stack approach to find the maximum 12-digit number that can be formed by deleting some digits from the input line while maintaining the order of the remaining digits.
 
-def max_joltage_12(line: str) -> int:
+def max_joltage_12(line: str) -> int:      # type hint : (line: str) -> int  
     digits = line.strip()
     k = 12
 
@@ -13,7 +13,7 @@ def max_joltage_12(line: str) -> int:
 
     for d in digits:
         # Remove smaller previous digits if current digit is bigger
-        while to_remove > 0 and stack and stack[-1] < d:
+        while to_remove > 0 and stack and stack[-1] < d:     
             stack.pop()
             to_remove -= 1
         stack.append(d)
@@ -28,7 +28,7 @@ def max_joltage_12(line: str) -> int:
 
 
 def total_joltage_12(filename: str) -> int:
-    total = 0
+    total = 0 
 
     with open(filename, "r") as f:
         for line in f:
