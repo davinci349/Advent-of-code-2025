@@ -32,4 +32,4 @@ def count_accessible_rolls(filename):
     return accessible
 
 
-print(count_accessible_rolls("2025/Day4/Day4_input.txt"))
+print(count_accessible_rolls("2025/Day4/Day4.txt"))
