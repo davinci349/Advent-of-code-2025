@@ -13,11 +13,11 @@ def solve(filename):
 
     count = 0
 
-    for ingredient_id in ids:
-        for start, end in ranges:
+    for start, end in ranges:
+        for ingredient_id in ids:        
             if start <= ingredient_id <= end:
                 count += 1
-                break
+                
 
     return count
 
