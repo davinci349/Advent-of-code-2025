@@ -16,10 +16,13 @@ def solve(filename):
     for start, end in ranges:
         for ingredient_id in ids:        
             if start <= ingredient_id <= end:
-                count += 1
+                count += 
                 
 
     return count
 
 
+
 print(solve("2025/Day5/data5.txt"))
+
+
