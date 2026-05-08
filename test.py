@@ -1,28 +1,51 @@
 def solve(filename):
     with open(filename, "r") as f:
-        text = f.read().strip()
+        lines = f.read().splitlines()
 
-    ranges_part, ids_part = text.split("\n\n")
+    # Make all lines same width
+    width = max(len(line) for line in lines)
+    lines = [line.ljust(width) for line in lines]    # .ljust():It pads spaces (or another character) to the right side of the string so the total length becomes a specified width.
 
-    ranges = []
-    for line in ranges_part.splitlines():                 # .splitlines() :text = "Hello\nWorld\nPython\n" print(text.splitlines()), the output would be ['Hello', 'World', 'Python'] ,it splits the string at line breaks like: \n (newline).
-        start, end = map(int, line.split("-"))                
-        ranges.append((start, end))
+    total = 0
+    c = 0
 
-    ids = [int(line) for line in ids_part.splitlines()]
+    while c < width:
+        # Skip empty space columns
+        if all(line[c] == " " for line in lines):    # .all(): It checks a collection (like a list, tuple, or generator) and only returns True if every single element in that collection evaluates to True.
+            c += 1
+            continue                                 # continue: Skip the rest of this loop iteration and go to the next loop round immediately.
 
-    count = 0
+        # Find one problem block
+        start = c
+        while c < width and not all(line[c] == " " for line in lines):
+            c += 1
+        end = c
 
-    for start, end in ranges:
-        for ingredient_id in ids:        
-            if start <= ingredient_id <= end:
-                count += 
-                
+        # Extract this block
+        block = [line[start:end] for line in lines]
 
-    return count
+        # Last line contains operator
+        op = block[-1].strip()
+
+        # Other lines contain numbers
+        nums = []
+        for row in block[:-1]:
+            s = row.strip()
+                                  # sometimes lines may be blank,that is False So Python skips it.
+            nums.append(int(s))
+
+        # Calculate answer
+        if op == "+":
+            ans = sum(nums)
+        elif op == "*":
+            ans = 1
+            for n in nums:
+                ans *= n
+        
+
+        total += ans
+
+    return total
 
 
-
-print(solve("2025/Day5/data5.txt"))
-
-
+print(solve("2025/Day6/data6.txt"))

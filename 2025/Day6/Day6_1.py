@@ -4,16 +4,16 @@ def solve(filename):
 
     # Make all lines same width
     width = max(len(line) for line in lines)
-    lines = [line.ljust(width) for line in lines]
+    lines = [line.ljust(width) for line in lines]    # .ljust():It pads spaces (or another character) to the right side of the string so the total length becomes a specified width.
 
     total = 0
     c = 0
 
     while c < width:
         # Skip empty space columns
-        if all(line[c] == " " for line in lines):
+        if all(line[c] == " " for line in lines):    # .all(): It checks a collection (like a list, tuple, or generator) and only returns True if every single element in that collection evaluates to True.
             c += 1
-            continue
+            continue                                 # continue: Skip the rest of this loop iteration and go to the next loop round immediately.
 
         # Find one problem block
         start = c
@@ -31,7 +31,7 @@ def solve(filename):
         nums = []
         for row in block[:-1]:
             s = row.strip()
-            if s:
+            if s:                       # sometimes lines may be blank,that is False So Python skips it.
                 nums.append(int(s))
 
         # Calculate answer
