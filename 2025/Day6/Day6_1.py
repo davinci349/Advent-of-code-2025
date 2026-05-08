@@ -42,7 +42,7 @@ def solve(filename):
             for n in nums:
                 ans *= n
         else:
-            raise ValueError("Unknown operator: " + op)
+            raise ValueError("Unknown operator: " + op)           # raise: Manually create an error,Python immediately stops running unless the error is caught.
 
         total += ans
 
