@@ -4,7 +4,7 @@ def solve(filename):
 
     # Make all lines same width
     width = max(len(line) for line in lines)
-    lines = [line.ljust(width) for line in lines]    # .ljust():It pads spaces (or another character) to the right side of the string so the total length becomes a specified width.
+    # lines = [line.ljust(width) for line in lines]    # .ljust():It pads spaces (or another character) to the right side of the string so the total length becomes a specified width.
 
     total = 0
     c = 0

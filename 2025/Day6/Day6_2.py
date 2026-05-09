@@ -30,7 +30,7 @@ def solve_part2(filename):
         nums = []
         cols = len(block[0])
 
-        for col in reversed(range(cols)):
+        for col in reversed(range(cols)):      # reversed(): Loop through the column numbers backward, ex:0, 1, 2, 3, 4 → 4, 3, 2, 1, 0.
             digits = []
             for row in range(len(block) - 1):  # skip operator row
                 ch = block[row][col]
@@ -39,7 +39,7 @@ def solve_part2(filename):
 
             if digits:
                 # digits are top → bottom → need reverse
-                num = int("".join(digits))
+                num = int("".join(digits))     # join(): combines all items in the list into one string,then convert it into an integer.
                 nums.append(num)
 
         # Compute result
