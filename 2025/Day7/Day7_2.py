@@ -7,12 +7,13 @@ def solve(filename):
     rows = len(grid)
     cols = max(len(line) for line in grid)
 
+
     grid = [line.ljust(cols) for line in grid]
 
     start_col = grid[0].index("S")
 
-    timelines = Counter()
-    timelines[start_col] = 1
+    timelines = Counter()          # Counter(): is a special Python tool used for counting things automatically, it is similar to a dictionary, but designed for counting.
+    timelines[start_col] = 1       # Store the value 1 at key start_col inside timelines.
 
     for r in range(1, rows):
         new_timelines = Counter()
