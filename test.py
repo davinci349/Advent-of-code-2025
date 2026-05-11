@@ -1,51 +1,40 @@
 def solve(filename):
     with open(filename, "r") as f:
-        lines = f.read().splitlines()
+        grid = f.read().splitlines()
 
-    # Make all lines same width
-    width = max(len(line) for line in lines)
-    # lines = [line.ljust(width) for line in lines]    # .ljust():It pads spaces (or another character) to the right side of the string so the total length becomes a specified width.
+    rows = len(grid)
+    cols = len(grid[0])
 
-    total = 0
-    c = 0
+    # Find S position
+    start_col = grid[0].index("S")       # index(): is a method used to find the position of an element inside a string or list.
 
-    while c < width:
-        # Skip empty space columns
-        if all(line[c] == " " for line in lines):    # .all(): It checks a collection (like a list, tuple, or generator) and only returns True if every single element in that collection evaluates to True.
-            c += 1
-            continue                                 # continue: Skip the rest of this loop iteration and go to the next loop round immediately.
+    # active beams: columns where beams are currently moving downward
+    beams = {start_col}                  # A set is a collection of unique values, do not want duplicate values.
 
-        # Find one problem block
-        start = c
-        while c < width and not all(line[c] == " " for line in lines):
-            c += 1
-        end = c
+    split_count = 0
 
-        # Extract this block
-        block = [line[start:end] for line in lines]
+    # Start checking from row 1 because S is on row 0
+    for r in range(1, rows):
+        new_beams = set()
 
-        # Last line contains operator
-        op = block[-1].strip()
+        for c in beams:
 
-        # Other lines contain numbers
-        nums = []
-        for row in block[:-1]:
-            s = row.strip()
-                                  # sometimes lines may be blank,that is False So Python skips it.
-            nums.append(int(s))
+            if grid[r][c] == "^":
+                split_count += 1
 
-        # Calculate answer
-        if op == "+":
-            ans = sum(nums)
-        elif op == "*":
-            ans = 1
-            for n in nums:
-                ans *= n
-        
+                # Beam splits left and right
+                if c - 1 >= 0:
+                    new_beams.add(c - 1)
+                if c + 1 < cols:
+                    new_beams.add(c + 1)
+            else:
+                # Beam continues downward
+                new_beams.add(c)
 
-        total += ans
+        beams = new_beams
 
-    return total
+    return split_count
 
 
-print(solve("2025/Day6/data6.txt"))
+answer = solve("2025/Day7/data7.txt")
+print(answer)

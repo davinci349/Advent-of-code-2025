@@ -6,16 +6,16 @@ def solve(filename):
     cols = len(grid[0])
 
     # Find S position
-    start_col = grid[0].index("S")
+    start_col = grid[0].index("S")       # index(): is a method used to find the position of an element inside a string or list.
 
     # active beams: columns where beams are currently moving downward
-    beams = {start_col}
+    beams = {start_col}                  # A set is a collection of unique values, do not want duplicate values.
 
     split_count = 0
 
     # Start checking from row 1 because S is on row 0
     for r in range(1, rows):
-        new_beams = set()
+        new_beams = set()               # set(): to create an empty set.
 
         for c in beams:
             if c < 0 or c >= cols:
