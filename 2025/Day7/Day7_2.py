@@ -18,7 +18,7 @@ def solve(filename):
     for r in range(1, rows):
         new_timelines = Counter()
 
-        for c, count in timelines.items():
+        for c, count in timelines.items():     # 1 Loop through every key-value pair inside timelines. 2.item(): returns (key, value) pairs from a dictionary or Counter.
             if grid[r][c] == "^":
                 new_timelines[c - 1] += count
                 new_timelines[c + 1] += count
@@ -27,7 +27,7 @@ def solve(filename):
 
         timelines = new_timelines
 
-    return sum(timelines.values())
+    return sum(timelines.values())       # Add together all the values inside timelines, then return the total.
 
 
 print(solve("2025/Day7/data7.txt"))
