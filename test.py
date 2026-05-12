@@ -27,4 +27,4 @@ def solve(filename):
     return sum(timelines.values())
 
 
-print(solve("2025/Day7/data7.txt"))
+print(solve("test.txt"))
