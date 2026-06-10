@@ -1,6 +1,6 @@
 from itertools import combinations
 
-class DSU:
+class DSU:     # Disjoint Set Union (DSU) or Union-Find data structure is a powerful tool for managing and merging disjoint sets. It provides efficient operations for finding the representative of a set and merging two sets together.
     def __init__(self, n):
         self.parent = list(range(n))
         self.size = [1] * n
