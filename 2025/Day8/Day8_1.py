@@ -52,8 +52,8 @@ def solve(filename):
 
         edges.append((dist2, i, j))
 
-    # Sort by shortest distance
-    edges.sort()
+    
+    edges.sort()   # Sort by shortest distance. Ascending Order (Default)
 
     dsu = DSU(n)   # Disjoint Set Union (DSU) or Union-Find data structure is a powerful tool for managing and merging disjoint sets. It provides efficient operations for finding the representative of a set and merging two sets together.
 
